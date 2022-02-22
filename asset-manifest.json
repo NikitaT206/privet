@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/privet/static/css/main.2329cd1c.css",
+    "main.js": "/privet/static/js/main.bf9591c0.js",
+    "static/media/stars.png": "/privet/static/media/stars.a3569e6d96c6b78471ea.png",
+    "index.html": "/privet/index.html",
+    "main.2329cd1c.css.map": "/privet/static/css/main.2329cd1c.css.map",
+    "main.bf9591c0.js.map": "/privet/static/js/main.bf9591c0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2329cd1c.css",
+    "static/js/main.bf9591c0.js"
+  ]
+}
