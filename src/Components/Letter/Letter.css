@@ -1,0 +1,64 @@
+.letter {
+  text-transform: uppercase;
+  width: 115px;
+  height: 115px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: box-shadow 1s linear, transform 0.4s ease-in-out,
+    background-color 0.4s ease-in-out;
+  transform: scale(1.15);
+}
+
+.letter_transform {
+  transform: rotateY(180deg);
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.letter::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: greenyellow;
+  box-shadow: greenyellow 0 0 20px 2px;
+}
+
+.letter__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: transparent;
+  z-index: -1;
+  border-radius: 20px;
+  transition: 0.3s linear;
+}
+
+.letter__text {
+  font-size: 80px;
+  font-weight: 600;
+  color: white;
+  z-index: 0;
+  margin: 0;
+  background-color: transparent;
+  transition: 2s linear;
+}
+
+@media screen and (max-width: 400px) {
+  .letter {
+    width: 100px;
+    height: 100px;
+  }
+
+  .letter__text {
+    font-size: 75px;
+  }
+}
