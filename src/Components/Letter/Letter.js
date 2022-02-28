@@ -18,7 +18,7 @@ export function Letter(props) {
 
   const [play1] = useSound(
     sound1,
-    { volume: 0.20 }
+    { volume: 0.25 }
   );
 
   const handleRotate = useCallback(() => {

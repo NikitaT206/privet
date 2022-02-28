@@ -63,7 +63,7 @@ function App() {
   );
   const [playWin] = useSound(
     soundWin,
-    { volume: 0.20 }
+    { volume: 0.25 }
   );
 
   const returnSound = useCallback(() => {
