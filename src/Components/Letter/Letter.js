@@ -2,6 +2,12 @@ import './Letter.css'
 import { useState, useEffect, useMemo, useCallback, useContext} from 'react'
 import CountContext from '../../Context/CountContext'
 import ScoreContext from '../../Context/ScoreContext'
+import useSound from 'use-sound'
+import sound1 from '../../Sounds/1.mp3'
+
+
+
+
 
 export function Letter(props) {
   const [rotate, setRotate] = useState(false)
@@ -10,9 +16,15 @@ export function Letter(props) {
   const score = useContext(ScoreContext)
   const time = 3000 - Number(score + '00')
 
+  const [play1] = useSound(
+    sound1,
+    { volume: 0.20 }
+  );
+
   const handleRotate = useCallback(() => {
     if (!rotate) {
       setRotate(true)
+      play1()
       props.onIncrement()
     }
     if (rotate) {
@@ -22,7 +34,7 @@ export function Letter(props) {
   }, [rotate, props])  
 
   function getRandomColor() {
-    const colors = ['red', 'orange', 'yellow', 'greenyellow', 'cyan', 'blue', 'blueviolet']
+    const colors = ['yellow', 'greenyellow', 'cyan', 'blueviolet', 'white', 'tomato', 'teal', 'deeppink', 'aqua', 'coral']
     return `${colors[Math.floor(Math.random() * colors.length)]}`
   }
 
@@ -60,11 +72,11 @@ export function Letter(props) {
     <div 
       className={rotate ? 'letter' : 'letter letter_transform'} 
       onClick={handleRotate} 
-      style={rotate ? {boxShadow: `inset ${color} 0 0 10px 10px`} : {boxShadow: ''}}>
+      style={rotate ? {boxShadow: `inset white 0 0 10px 10px`} : {boxShadow: ''}}>
       <div className='letter__background'></div>
       <p 
         className='letter__text'
-        style={{textShadow: `${color} 0 0 10px`, color: color}}
+        style={rotate ? {textShadow: `${color} 0 0 10px`, color: 'white'} : {textShadow: `${color} 0 0 10px`, color: color}}
         >{props.letter}</p>
     </div>
   )
