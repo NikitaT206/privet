@@ -5,10 +5,6 @@ import ScoreContext from '../../Context/ScoreContext'
 import useSound from 'use-sound'
 import sound1 from '../../Sounds/1.mp3'
 
-
-
-
-
 export function Letter(props) {
   const [rotate, setRotate] = useState(false)
   const [color, setColor] = useState('')

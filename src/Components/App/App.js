@@ -9,14 +9,7 @@ import useSound from 'use-sound';
 
 import music from '../../Sounds/music2.mp3'
 
-import sound1 from '../../Sounds/1.mp3'
-import sound2 from '../../Sounds/2.mp3'
-import sound3 from '../../Sounds/3.mp3'
-import sound4 from '../../Sounds/4.mp3'
-import sound5 from '../../Sounds/5.mp3'
 import soundWin from '../../Sounds/win.mp3'
-
-
 
 function App() {
   const [letters, setLetters] = useState(['h', 'e', 'l', 'l', 'o'])
@@ -40,53 +33,11 @@ function App() {
     music,
     { volume: 0.25 }
   );
-
-  const [play1] = useSound(
-    sound1,
-    { volume: 0.10 }
-  );
-  const [play2] = useSound(
-    sound2,
-    { volume: 0.10}
-  );
-  const [play3] = useSound(
-    sound3,
-    { volume: 0.10 }
-  );
-  const [play4] = useSound(
-    sound4,
-    { volume: 0.10 }
-  );
-  const [play5] = useSound(
-    sound5,
-    { volume: 0.10 }
-  );
+  
   const [playWin] = useSound(
     soundWin,
     { volume: 0.25 }
   );
-
-  const returnSound = useCallback(() => {
-    switch(count) {
-      case 1: 
-        play1()
-        break
-      case 2: 
-        play2()
-        break
-      case 3: 
-        play3()
-        break
-      case 4: 
-        play4()
-        break
-      case 5: 
-        // play5()
-        playWin()
-        break
-      default: return
-    }
-  }, [count])   
 
   function handleIncrement() {
     setCount(prev => prev + 1)
