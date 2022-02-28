@@ -1,14 +1,23 @@
 {
   "files": {
-    "main.css": "/privet/static/css/main.2329cd1c.css",
-    "main.js": "/privet/static/js/main.bf9591c0.js",
+    "main.css": "/privet/static/css/main.8a0c38f5.css",
+    "main.js": "/privet/static/js/main.ecb43bd9.js",
+    "static/js/845.0e9d1978.chunk.js": "/privet/static/js/845.0e9d1978.chunk.js",
+    "static/media/music2.mp3": "/privet/static/media/music2.415f5ae36e85a81ec864.mp3",
     "static/media/stars.png": "/privet/static/media/stars.a3569e6d96c6b78471ea.png",
+    "static/media/win.mp3": "/privet/static/media/win.b1fa09a59d5c60534ac6.mp3",
+    "static/media/3.mp3": "/privet/static/media/3.9fc5ebead20e759f6474.mp3",
+    "static/media/4.mp3": "/privet/static/media/4.4196ce216ec274180308.mp3",
+    "static/media/5.mp3": "/privet/static/media/5.5e02b5d55f4be7d6b747.mp3",
+    "static/media/2.mp3": "/privet/static/media/2.fec661fe43f1d0e1fa94.mp3",
+    "static/media/1.mp3": "/privet/static/media/1.38f10cd9101c9668d321.mp3",
     "index.html": "/privet/index.html",
-    "main.2329cd1c.css.map": "/privet/static/css/main.2329cd1c.css.map",
-    "main.bf9591c0.js.map": "/privet/static/js/main.bf9591c0.js.map"
+    "main.8a0c38f5.css.map": "/privet/static/css/main.8a0c38f5.css.map",
+    "main.ecb43bd9.js.map": "/privet/static/js/main.ecb43bd9.js.map",
+    "845.0e9d1978.chunk.js.map": "/privet/static/js/845.0e9d1978.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2329cd1c.css",
-    "static/js/main.bf9591c0.js"
+    "static/css/main.8a0c38f5.css",
+    "static/js/main.ecb43bd9.js"
   ]
 }
