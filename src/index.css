@@ -59,11 +59,17 @@ code {
 
 .letters {
   position: relative;
+  width: 100%;
+  height: 100%;
   transition: 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .letters_blur {
   filter: blur(10px);
+  box-shadow: inset greenyellow 0 0 100px 10px;
 }
 
 .count {

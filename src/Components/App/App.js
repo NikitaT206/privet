@@ -16,20 +16,18 @@ function App() {
   const [count, setCount] = useState(0)
   const [win, setWin] = useState(false)
   const [score, setScore] = useState(0)
-  const time = 3000 - Number(score + '00')
+  const time = 4000 - Number(score + '00')
   const [loader, setLoader] = useState(false)
   const [play, setPlay] = useState(false)
   
+  const [level1, setLevel1] = useState(false)
+  const [level2, setLevel2] = useState(false)
+  const [level3, setLevel3] = useState(false)
+  const [level4, setLevel4] = useState(false)
+  const [level5, setLevel5] = useState(false)
 
-  const [playActive] = useSound(
-    music,
-    { volume: 0.25 }
-  );
+  
   const [playOn] = useSound(
-    music,
-    { volume: 0.25 }
-  );
-  const [playOff] = useSound(
     music,
     { volume: 0.25 }
   );
@@ -38,6 +36,31 @@ function App() {
     soundWin,
     { volume: 0.25 }
   );
+
+  const setLevel = useCallback(() => {
+    if (score < 3) {
+      setLevel1(true)
+    }
+    if (score >= 3 && score <= 5) {
+      setLevel1(false)
+      setLevel2(true)
+    }
+    if (score >= 6 && score <= 9) {
+      setLevel1(false)
+      setLevel2(false)
+      setLevel3(true)
+    }
+    if (score >= 10 && score <= 13) {
+      setLevel1(false)
+      setLevel3(false)
+      setLevel4(true)
+    }
+    if (score >= 14 && score <= 17) {
+      setLevel1(false)
+      setLevel3(false)
+      setLevel5(true)
+    }
+  }, [score])
 
   function handleIncrement() {
     setCount(prev => prev + 1)
@@ -59,7 +82,7 @@ function App() {
   function startPlay() {
     setPlay(false)
     setTimeout(() => {
-      playOn()
+      // playOn()
 
     }, 300)
 
@@ -67,6 +90,10 @@ function App() {
       setLoader(false)
     }, 2000)
   }
+
+  useEffect(() => {
+    setLevel()    
+  }, [score, setLevel])
 
   useEffect(() => {
     if (count === 5) {
@@ -122,18 +149,24 @@ function App() {
       {/* {loader ? <div className='overlay'></div> : ''} */}
       <img src={stars} className={loader ? 'background' : 'background background_active'} alt='stars'/>
       <div className={win || play ? 'letters letters_blur' : 'letters'}>
-        <div className={win || play ? 'letters-grid-container_win letters-grid-container' : 'letters-grid-container'} >
+        <div className='letters-grid-container'>
          {letters.map((item, index) => {
            return (
-            <Letter 
+            <Letter
+              win={win}
+              index={index + 1}
               letter={item} 
               key={index} 
               onIncrement={handleIncrement} 
               onDecrement={handleDecrement}
               loader={loader}
+              level1={level1}
+              level2={level2}
+              level3={level3}
+              level4={level4}
+              level5={level5}
             />)})}
-        </div>
-        
+        </div> 
       </div>
       {/* <div className='count'>{count}</div> */}
         {!loader ? <div className={score > 0 ? 'score score_active' : 'score'}>{score}</div> : ''}
