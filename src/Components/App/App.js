@@ -41,21 +41,21 @@ function App() {
     if (score < 3) {
       setLevel1(true)
     }
-    if (score >= 3 && score <= 5) {
+    if (score >= 4 && score <= 7) {
       setLevel1(false)
       setLevel2(true)
     }
-    if (score >= 6 && score <= 9) {
+    if (score >= 8 && score <= 11) {
       setLevel1(false)
       setLevel2(false)
       setLevel3(true)
     }
-    if (score >= 10 && score <= 13) {
+    if (score >= 12 && score <= 16) {
       setLevel1(false)
       setLevel3(false)
       setLevel4(true)
     }
-    if (score >= 14 && score <= 17) {
+    if (score >= 17) {
       setLevel1(false)
       setLevel3(false)
       setLevel5(true)
@@ -82,8 +82,7 @@ function App() {
   function startPlay() {
     setPlay(false)
     setTimeout(() => {
-      // playOn()
-
+      playOn()
     }, 300)
 
     setTimeout(() => {

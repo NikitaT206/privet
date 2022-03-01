@@ -89,12 +89,12 @@ export function Letter(props) {
       className={rotate ? `letter letter-${props.index}`  : `letter letter_transform letter-${props.index}`} 
       onClick={handleRotate} 
       style={
-        rotate ? {boxShadow: `inset white 0 0 10px 10px`} : {boxShadow: ''} 
+        rotate ? {boxShadow: `inset white 0 0 10px 10px`, top: 0, right: 0} : {boxShadow: ''} 
         && props.level1 ? {top: 0} 
         : props.level2 ? mobile ? {right: getRandomPosition(10)} : {top: getRandomPosition(10)}
         : props.level3 ? mobile ? {right: getRandomPosition(30)} : {top: getRandomPosition(30)}
         : props.level4 ? mobile ? {right: getRandomPosition(60)} : {top: getRandomPosition(60)}
-        : props.level5 ? mobile ? {right: getRandomPosition(100)} : {top: getRandomPosition(100)} : {top: 0}
+        : props.level5 ? mobile ? {right: getRandomPosition(150)} : {top: getRandomPosition(150)} : {top: 0}
         }>
       <div className='letter__background'></div>
       <p 
