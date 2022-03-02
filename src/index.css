@@ -53,7 +53,7 @@ code {
 }
 
 .letters-grid-container_win {
-  box-shadow: greenyellow 0 0 100px 10px;
+  /* box-shadow: greenyellow 0 0 100px 10px; */
   background-color: black;
 }
 
@@ -69,7 +69,7 @@ code {
 
 .letters_blur {
   filter: blur(10px);
-  box-shadow: inset greenyellow 0 0 100px 10px;
+  box-shadow: inset greenyellow 0 0 500px 50px;
 }
 
 .count {

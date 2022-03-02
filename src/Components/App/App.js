@@ -25,6 +25,10 @@ function App() {
   const [level3, setLevel3] = useState(false)
   const [level4, setLevel4] = useState(false)
   const [level5, setLevel5] = useState(false)
+  const [level6, setLevel6] = useState(false)
+  const [level7, setLevel7] = useState(false)
+  const [level8, setLevel8] = useState(false)
+  const [level9, setLevel9] = useState(false)
 
   
   const [playOn] = useSound(
@@ -41,24 +45,44 @@ function App() {
     if (score < 3) {
       setLevel1(true)
     }
-    if (score >= 4 && score <= 7) {
+    if (score >= 3 && score <= 4) {
       setLevel1(false)
       setLevel2(true)
     }
-    if (score >= 8 && score <= 11) {
+    if (score >= 5 && score <= 6) {
       setLevel1(false)
       setLevel2(false)
       setLevel3(true)
     }
-    if (score >= 12 && score <= 16) {
+    if (score >= 7 && score <= 8) {
       setLevel1(false)
       setLevel3(false)
       setLevel4(true)
     }
-    if (score >= 17) {
+    if (score >= 9 && score <= 10) {
       setLevel1(false)
-      setLevel3(false)
+      setLevel4(false)
       setLevel5(true)
+    }
+    if (score >= 11 && score <= 12) {
+      setLevel1(false)
+      setLevel5(false)
+      setLevel6(true)
+    }
+    if (score >= 13 && score <= 14) {
+      setLevel1(false)
+      setLevel6(false)
+      setLevel7(true)
+    }
+    if (score >= 15 && score <= 16) {
+      setLevel1(false)
+      setLevel7(false)
+      setLevel8(true)
+    }
+    if (score >= 17 ) {
+      setLevel1(false)
+      setLevel8(false)
+      setLevel9(true)
     }
   }, [score])
 
@@ -82,7 +106,7 @@ function App() {
   function startPlay() {
     setPlay(false)
     setTimeout(() => {
-      playOn()
+      // playOn()
     }, 300)
 
     setTimeout(() => {
@@ -164,6 +188,10 @@ function App() {
               level3={level3}
               level4={level4}
               level5={level5}
+              level6={level6}
+              level7={level7}
+              level8={level8}
+              level9={level9}
             />)})}
         </div> 
       </div>

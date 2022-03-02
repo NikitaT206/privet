@@ -12,6 +12,7 @@ export function Letter(props) {
   const score = useContext(ScoreContext)
   const time = 4000 - Number(score + '00')
   const [width, setWidth] = useState(window.innerWidth)
+  // const [mobile, setMobile] = useState(false)
   const mobile = width <= 700
 
   const [play1] = useSound(
@@ -29,7 +30,7 @@ export function Letter(props) {
       setRotate(false)
       props.onDecrement()
     }
-  }, [rotate, props])  
+  }, [rotate, play1, props])  
 
   function getRandomColor() {
     const colors = ['yellow', 'greenyellow', 'cyan', 'blueviolet', 'white', 'tomato', 'teal', 'deeppink', 'aqua', 'coral']
@@ -47,8 +48,6 @@ export function Letter(props) {
       window.removeEventListener('resize', resizeListener);
     }
   }, [])
-
- 
 
   useEffect(() => {
     if (!props.loader) {
@@ -81,7 +80,13 @@ export function Letter(props) {
   }, [props.loader])
 
   function getRandomPosition(number) {
-    return Math.floor(Math.random() * -number + Math.random() * number)
+    return  mobile 
+            ? {right: Math.floor(Math.random() * -number + Math.random() * number)} 
+            : {top: Math.floor(Math.random() * -number + Math.random() * number)}
+  }
+
+  function returnAnimation(name, options) {
+    return mobile ? {animation: `${name}Mobile ${options} infinite ease-in-out`} : {animation: `${name} ${options} infinite ease-in-out`}
   }
 
   return (
@@ -89,12 +94,16 @@ export function Letter(props) {
       className={rotate ? `letter letter-${props.index}`  : `letter letter_transform letter-${props.index}`} 
       onClick={handleRotate} 
       style={
-        rotate ? {boxShadow: `inset white 0 0 10px 10px`, top: 0, right: 0} : {boxShadow: ''} 
-        && props.level1 ? {top: 0} 
-        : props.level2 ? mobile ? {right: getRandomPosition(10)} : {top: getRandomPosition(10)}
-        : props.level3 ? mobile ? {right: getRandomPosition(30)} : {top: getRandomPosition(30)}
-        : props.level4 ? mobile ? {right: getRandomPosition(60)} : {top: getRandomPosition(60)}
-        : props.level5 ? mobile ? {right: getRandomPosition(150)} : {top: getRandomPosition(150)} : {top: 0}
+        rotate ? {boxShadow: `inset white 0 0 10px 10px`} : {boxShadow: ''} 
+        && props.level1 ? {} 
+         : props.level2 ? getRandomPosition(10)
+         : props.level3 ? getRandomPosition(30)
+         : props.level4 ? getRandomPosition(60)
+         : props.level5 ? getRandomPosition(100)
+         : props.level6 ? returnAnimation('level6', `alternate-reverse 4s 0.${props.index}s`)
+         : props.level7 ? returnAnimation('level6', `alternate-reverse 2.5s ${props.index - 1}s`)
+         : props.level8 ? returnAnimation('level8', `alternate-reverse 5s 0.${props.index}s`)
+         : props.level9 ? returnAnimation('level8', `normal 4s 0.${props.index}s`) : {}
         }>
       <div className='letter__background'></div>
       <p 
@@ -104,3 +113,8 @@ export function Letter(props) {
     </div>
   )
 }
+
+// && props.level2 ? (mobile ? {right: getRandomPosition(10)} : {top: getRandomPosition(10)}) : {} 
+// && props.level3 ? (mobile ? {right: getRandomPosition(30)} : {top: getRandomPosition(30)}) : {}
+// && props.level4 ? (mobile ? {right: getRandomPosition(60)} : {top: getRandomPosition(60)}) : {}
+// && props.level5 ? (mobile ? {right: getRandomPosition(100)} : {top: getRandomPosition(100)}) : {}
