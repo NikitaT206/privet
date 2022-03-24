@@ -1,0 +1,203 @@
+.letter {
+  text-transform: uppercase;
+  width: 115px;
+  height: 115px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  border-radius: 20px;
+  transform: scale(1.15);
+  top: 0;
+  right: 0;
+  animation: alternate-reverse;
+  transition: box-shadow 1s linear, transform 0.4s ease-in-out,
+    background-color 0.4s ease-in-out, top 0.5s ease-in-out,
+    right 0.5s ease-in-out;
+}
+
+.letter_transform {
+  transform: rotateY(180deg);
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.letter::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: greenyellow;
+  box-shadow: greenyellow 0 0 20px 2px;
+}
+
+.letter__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: transparent;
+  z-index: -1;
+  border-radius: 20px;
+  transition: 0.3s linear;
+}
+
+.letter__text {
+  font-size: 80px;
+  font-weight: 600;
+  color: white;
+  z-index: 0;
+  margin: 0;
+  background-color: transparent;
+  transition: 2s linear;
+}
+
+@media screen and (max-width: 400px) {
+  .letter {
+    width: 100px;
+    height: 100px;
+  }
+
+  .letter__text {
+    font-size: 75px;
+  }
+}
+
+@keyframes level6 {
+  0% {
+    top: 0;
+  }
+
+  25% {
+    top: 10vh;
+  }
+
+  75% {
+    top: -10vh;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes level6Mobile {
+  0% {
+    right: 0;
+  }
+
+  25% {
+    right: 10vh;
+  }
+
+  75% {
+    right: -10vh;
+  }
+
+  100% {
+    right: 0;
+  }
+}
+
+@keyframes level8 {
+  0% {
+    top: 80%;
+    right: 0;
+  }
+
+  20% {
+    top: 80%;
+    right: -80%;
+  }
+
+  40% {
+    top: -80%;
+    right: -80%;
+  }
+
+  60% {
+    top: -80%;
+    left: -80%;
+  }
+
+  80% {
+    top: -80%;
+    right: 0;
+  }
+
+  100% {
+    top: 0;
+    right: 0;
+    bottom: -80%;
+  }
+}
+
+@keyframes level8Mobile {
+  0% {
+    top: 70%;
+    right: 0;
+  }
+
+  20% {
+    top: 70%;
+    right: -90%;
+  }
+
+  40% {
+    top: -50%;
+    right: -90%;
+  }
+
+  60% {
+    top: -50%;
+    left: -90%;
+  }
+
+  80% {
+    top: -50%;
+    right: 0;
+  }
+
+  100% {
+    top: 0;
+    right: 0;
+    bottom: -20%;
+  }
+}
+
+@keyframes level8 {
+  0% {
+    top: 80%;
+    right: 0;
+  }
+
+  20% {
+    top: 80%;
+    right: -80%;
+  }
+
+  40% {
+    top: -80%;
+    right: -80%;
+  }
+
+  60% {
+    top: -80%;
+    left: -80%;
+  }
+
+  80% {
+    top: -80%;
+    right: 0;
+  }
+
+  100% {
+    top: 0;
+    right: 0;
+    bottom: -80%;
+  }
+}
